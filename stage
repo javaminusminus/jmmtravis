@@ -1,0 +1,41 @@
+#!/bin/bash
+jmmstage_get_package_dir() {
+    local dir
+	for file in $(find "$1" -name "*.java"); do
+		for package in $(grep ^package "$file"); do
+			if [[ "$package" != "package" ]]; then
+                dir="$JMMPATH/src/"${package//[\.]/\/}
+                echo ${dir//[;]}
+                return
+            fi
+		done
+	done
+}
+
+echo "Installing jmm"
+git clone https://github.com/javaminusminus/jmm.git ~/.jmmstage
+. ~/.jmmstage/jmm.sh
+
+echo "Creating staging workspace"
+mkdir -p ~/jmmstage
+jmm here ~/jmmstage
+jmm get github.com/javaminusminus/simplebdd
+
+echo "Copying package files to staging workspace"
+# Get package name from .java file and convert into a path.
+packagePath="$(jmmstage_get_package_dir "$(pwd)")"
+
+echo "Staging $packagePath"
+mkdir -p $packagePath
+# Copy all files into $packagePath.
+cp -r ./* $packagePath
+cp -r ./.[^.]* $packagePath
+
+echo "Running Tests"
+jmm test $packagePath
+result=$?
+
+echo "Cleanup stage workspace"
+rm -rf ~/.jmmstage
+
+exit $result
