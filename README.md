@@ -8,7 +8,7 @@ To test your package create a `.travis.yml` file using the following configurati
 language: java
 script:
   - git clone https://github.com/javaminusminus/jmmtravis.git ~/.jmmtravis
-  - ./.jmmtravis/stage
+  - ~/.jmmtravis/stage
 os:
   - linux
   - osx
