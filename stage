@@ -20,13 +20,13 @@ jmmstage_get_package_dir() {
 }
 
 echo "Installing jmm"
-git clone https://github.com/javaminusminus/jmm.git ~/.jmmstage
+git clone https://github.com/jminusminus/jmm.git ~/.jmmstage
 . ~/.jmmstage/jmm.sh
 
 echo "Creating staging workspace"
 mkdir -p ~/jmmstage
 jmm here ~/jmmstage
-jmm get github.com/javaminusminus/simplebdd
+jmm get github.com/jminusminus/simplebdd
 
 echo "Copying package files to staging workspace"
 # Get package name from .java file and convert into a path.
