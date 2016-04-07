@@ -1,6 +1,6 @@
-# Java-- Package Test Runnner for Travis
+# Jmm Package Test Runnner for Travis
 
-This is a test runner for [Java--](https://github.com/jminusminus/jmm) packages that are being run in [Travis](https://travis-ci.org/).
+This is a test runner for [Jmm](https://github.com/jminusminus/jmm) packages that are being run in [Travis](https://travis-ci.org/).
 
 To test your package create a `.travis.yml` file using the following configuration.
 
