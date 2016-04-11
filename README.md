@@ -12,5 +12,4 @@ script:
   - ~/.jmmtravis/stage
 os:
   - linux
-  - osx
 ```
