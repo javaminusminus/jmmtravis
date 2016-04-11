@@ -6,6 +6,8 @@ To test your package create a `.travis.yml` file using the following configurati
 
 ```yaml
 language: java
+jdk:
+  - oraclejdk8
 script:
   - git clone https://github.com/jminusminus/jmmtravis.git ~/.jmmtravis
   - ~/.jmmtravis/stage
