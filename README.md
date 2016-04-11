@@ -13,3 +13,5 @@ script:
 os:
   - linux
 ```
+
+_As of now Travis does not support Java 8 on osx._
